@@ -1,0 +1,22 @@
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\bin\Debug\MISA.BL.dll
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\bin\Debug\MISA.BL.pdb
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\obj\Debug\MISA.BL.csproj.AssemblyReference.cache
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\obj\Debug\MISA.BL.csproj.CoreCompileInputs.cache
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\obj\Debug\MISA.BL.dll
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\obj\Debug\MISA.BL.pdb
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\bin\Debug\MISA.DL.dll
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\bin\Debug\MISA.Entities.dll
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\bin\Debug\MISA.DL.pdb
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\bin\Debug\MISA.Entities.pdb
+E:\Projects\ASP.NET Web\MISA.CukCuk\MISA.BL\obj\Debug\MISA.BL.csproj.CopyComplete
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\bin\Debug\MISA.BL.dll
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\bin\Debug\MISA.BL.pdb
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\bin\Debug\MISA.DL.dll
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\bin\Debug\MISA.Entities.dll
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\bin\Debug\MISA.DL.pdb
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\bin\Debug\MISA.Entities.pdb
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\obj\Debug\MISA.BL.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\obj\Debug\MISA.BL.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\obj\Debug\MISA.BL.csproj.CopyComplete
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\obj\Debug\MISA.BL.dll
+C:\Users\Admin\Downloads\MISA.CukCuk\MISA.BL\obj\Debug\MISA.BL.pdb

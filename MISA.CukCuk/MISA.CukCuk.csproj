@@ -395,8 +395,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -672,6 +670,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="css\common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MISA.BL\MISA.BL.csproj">
+      <Project>{629ec647-a3a3-4586-bd32-4e15136fedbb}</Project>
+      <Name>MISA.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MISA.Entities\MISA.Entities.csproj">
+      <Project>{eade7700-8711-4f96-bf73-fad19b5f623e}</Project>
+      <Name>MISA.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

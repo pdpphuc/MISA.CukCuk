@@ -1,4 +1,4 @@
-﻿using MISA.CukCuk.Models;
+﻿using MISA.CukCuk.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

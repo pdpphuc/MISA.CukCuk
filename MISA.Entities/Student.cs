@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MISA.CukCuk.Models
+namespace MISA.CukCuk.Entities
 {
     public class Student
     {

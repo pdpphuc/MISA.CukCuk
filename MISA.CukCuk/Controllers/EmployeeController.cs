@@ -1,4 +1,5 @@
-﻿using MISA.CukCuk.Models;
+﻿using MISA.BL;
+using MISA.CukCuk.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,56 +10,40 @@ using System.Web.Http;
 
 namespace MISA.CukCuk.Controllers
 {
-    [RoutePrefix("employees")]
+    [RoutePrefix("api/v1/employees")]
     public class EmployeeController : ApiController
     {
+        private EmployeeBL employeeBL = new EmployeeBL();
+
         [Route("")]
         public IEnumerable<Employee> Get()
         {
-            //string connectionString = "Server=DESKTOP-IKO3LOH;Database=CukCuk;User Id=sa;Password=123;";
-            //SqlConnection sqlConnection = new SqlConnection(connectionString);
-
-            //SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            //sqlCommand.CommandText = "SELECT * FROM Customer";
-
-            //sqlConnection.Open();
-            //SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-            return Employee.EmployeeList;
+            return employeeBL.GetEmployees();
         }
 
-        [Route("{employeeCode}")]
-        public Employee Get(string employeeCode)
+        [Route("{employeeID}")]
+        public Employee Get(Guid employeeID)
         {
-            return Employee.EmployeeList.FirstOrDefault(e => e.EmployeeCode == employeeCode);
+            return employeeBL.GetEmployee(employeeID);
         }
 
         [Route("")]
-        public void Post([FromBody] Employee employee)
+        public int Post([FromBody] Employee employee)
         {
-            Employee.EmployeeList.Add(employee);
+            return employeeBL.InsertEmployee(employee);
         }
 
         [Route("")]
-        public bool Put([FromBody] Employee employee)
+        public int Put([FromBody] Employee employee)
         {
-            Employee emp = Employee.EmployeeList.FirstOrDefault(e => e.EmployeeCode == employee.EmployeeCode);
-            Employee.EmployeeList.Remove(emp);
-            Employee.EmployeeList.Add(employee);
-            return true;
+            return employeeBL.UpdateEmployee(employee);
         }
 
         [HttpDelete]
-        [Route("{employeeCode}")]
-        public bool Delete(string employeeCode)
+        [Route("{employeeID}")]
+        public int Delete(Guid employeeID)
         {
-            Employee emp = Employee.EmployeeList.FirstOrDefault(e => e.EmployeeCode == employeeCode);
-            if (emp != null)
-            {
-                Employee.EmployeeList.Remove(emp);
-                return true;
-            }
-            return false;
+            return employeeBL.DeleteEmployee(employeeID);
         }
     }
 }

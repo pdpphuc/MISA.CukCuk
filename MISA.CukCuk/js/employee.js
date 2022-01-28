@@ -21,7 +21,7 @@ class EmployeeJS {
 	loadData() {
 		// Lấy dữ liệu trên server thông qua lời gọi tới api service
 		$.ajax({
-			url: "/employees",
+			url: "/api/v1/employees",
 			method: "GET",
 			data: "", // Tham số sẽ truyền qua body request
 			contentType: "application/json",
@@ -29,12 +29,12 @@ class EmployeeJS {
 		}).done(function (response) {
 			$('.grid tbody').empty();
 			$.each(response, function (index, item) {
-				var trHTML = $(`<tr>
+				var trHTML = $(`<tr employeeID = ` + item.EmployeeID + `>
 				<td>`+ item.EmployeeCode + `</td>
-				<td>`+ item.EmployeeName + `</td>
+				<td>`+ item.FullName + `</td>
 				<td>`+ item.Email + `</td>
 				<td>`+ item.Phone + `</td>
-				<td>`+ item.CompanyName + `</td>
+				<td>`+ item.Address + `</td>
 			</tr>`);
 				$('.grid tbody').append(trHTML);
 			})
@@ -67,6 +67,9 @@ class EmployeeJS {
 		$('.dialog-modal').hide();
 		$('.dialog').hide();
 	}
+	getID() {
+		return $("#tbEmployeeList tr.row-selected").attr('employeeID');
+	}
 	getEmployeeCodeSeleted() {
 		var empCode = null;
 		var trSelected = $("#tbEmployeeList tr.row-selected");
@@ -85,8 +88,8 @@ class EmployeeJS {
 	btnDeleteOnClick() {
 		var self = this;
 		// Kiểm tra đã chọn nhân viên?
-		var employeeCode = this.getEmployeeCodeSeleted();
-		if (!employeeCode) {
+		var employeeID = this.getID();
+		if (!employeeID) {
 			alert('Bạn chưa chọn nhân viên muốn xóa!');
 			return;
 		}
@@ -94,7 +97,7 @@ class EmployeeJS {
 			return;
 		}
 		$.ajax({
-			url: "/employees/" + employeeCode,
+			url: "/api/v1/employees/" + employeeID,
 			method: "DELETE"
 		}).done(function (response) {
 			if (response) {
@@ -109,31 +112,34 @@ class EmployeeJS {
 		})
 	}
 	btnEditOnClick() {
+		var self = this;
 		this.mode = "edit";
 		// Kiểm tra đã chọn nhân viên?
-		var employeeCode = this.getEmployeeCodeSeleted();
-		if (!employeeCode) {
+		var employeeID = this.getID();
+		if (!employeeID) {
 			alert('Bạn chưa chọn nhân viên muốn sửa!');
 			return;
 		}
 		// Hiển thị form chi tiết
 		this.showDialog();
 		// Lấy dữ liệu của nhân viên tương ứng đã chọn
-		
+
 		$.ajax({
-			url: "/employees/" + employeeCode,
+			url: "/api/v1/employees/" + employeeID,
 			method: "GET"
 		}).done(function (employee) {
 			if (!employee) {
 				alert('Nhân viên muốn sửa không tồn tại trong hệ thống!');
+				self.loadData();
+				self.hideDialog();
+				self.mode = null;
 				return;
 			}
 			// Binding các thông tin của nhân viên lên form
 			$('#txtEmployeeCode').val(employee.EmployeeCode);
-			$('#txtEmployeeName').val(employee.EmployeeName);
+			$('#txtFullName').val(employee.FullName);
 			$('#txtEmail').val(employee.Email);
 			$('#txtPhone').val(employee.Phone);
-			$('#txtCompanyName').val(employee.CompanyName);
 			$('#txtAddress').val(employee.Address);
 		}).fail(function (response) {
 
@@ -159,15 +165,15 @@ class EmployeeJS {
 		}
 		// Thu thập dữ liệu nhập trên form
 		var employee = {};
+		employee.EmployeeID = this.getID();
 		employee.EmployeeCode = $('#txtEmployeeCode').val();
-		employee.EmployeeName = $('#txtEmployeeName').val();
+		employee.FullName = $('#txtFullName').val();
 		employee.Email = $('#txtEmail').val();
 		employee.Phone = $('#txtPhone').val();
-		employee.CompanyName = $('#txtCompanyName').val();
 		employee.Address = $('#txtAddress').val();
 		// Lưu dữ liệu
 		$.ajax({
-			url: "/employees",
+			url: "/api/v1/employees",
 			method: method,
 			data: JSON.stringify(employee), // Tham số sẽ truyền qua body request
 			contentType: "application/json",

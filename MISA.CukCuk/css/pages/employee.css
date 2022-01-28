@@ -96,9 +96,13 @@ button#btnSave{
 }
 
 table tbody tr.row-selected {
-    background-color: #b6ff00;
+    background-color: #5fcfec;
 }
 
-a{
+.grid-content .grid{
+    overflow-y: auto;
+}
+
+a {
     text-decoration: none;
 }
